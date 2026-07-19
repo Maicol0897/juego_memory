@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="css/stalys.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <img src="img/logo.png" alt="Logo" class="logo">
+            <h1 class="title">Memory Game</h1>
+        </div>
+        <div class="header-right">
+            <button class="help-btn">Help</button>
+            <button class="user-btn">User</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="controls">
+            <button class="start-btn">Start Game</button>
+            <button class="restart-btn">Restart Game</button>
+            <div class="difficulty">
+                <label for="difficulty">Dificultad</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                    <option value="expert">Expert</option>
+                </select>
+            </div>
+            <p id="timer">Tiempo: 0 s</p>
+        </section>
+
+        <section class="game-board"></section>
+
+        <section class="leaderboard">
+            <h2>🏆 Top 10 Mejores Tiempos <span id="leaderboard-difficulty">(Easy)</span></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Tiempo</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                    <!-- Se llena con JS -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Modal para pedir el nombre -->
+    <div class="modal-overlay hidden" id="name-modal">
+        <div class="modal-box">
+            <h2>🎉 ¡Nuevo récord!</h2>
+            <p id="modal-message">Entraste al top 10. Ingresa tu nombre:</p>
+            <input type="text" id="player-name" placeholder="Tu nombre" maxlength="15">
+            <div class="modal-actions">
+                <button id="save-score-btn">Guardar</button>
+                <button id="cancel-score-btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de fin de juego (sin récord) -->
+    <div class="modal-overlay hidden" id="win-modal">
+        <div class="modal-box">
+            <h2>🎉 ¡Ganaste!</h2>
+            <p id="win-message">Tu tiempo fue de X segundos.</p>
+            <div class="modal-actions">
+                <button id="close-win-btn">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Memory Game &copy; 2026</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
